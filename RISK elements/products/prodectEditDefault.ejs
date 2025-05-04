@@ -1,0 +1,31 @@
+<%- include('../Partials/admin/adminHeader') %>
+
+<h2>Product Management</h2>
+<a href="/admin/products/add" class="btn btn-primary mb-3">Add Product</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% products.forEach(product => { %>
+        <tr>
+            <td><%= product.id %></td>
+            <td><%= product.name %></td>
+            <td><%= product.category %></td>
+            <td>$<%= product.price %></td>
+            <td>
+                <a href="/admin/products/edit/<%= product.id %>" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/admin/products/delete/<%= product.id %>" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<%- include('../Partials/admin/adminFooter') %>

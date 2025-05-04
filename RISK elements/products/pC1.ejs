@@ -1,0 +1,168 @@
+<%- include('../Partials/admin/adminHeader') %>
+
+<div class="category-container">
+  <div class="header-section">
+    <h1 class="page-title">Product Management</h1>
+    <button class="add-product-btn">Add Product</button>
+  </div>
+
+  <div class="product-table-container">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(product => { %>
+          <tr>
+            <td><%= product.id %></td>
+            <td><%= product.name %></td>
+            <td><%= product.category %></td>
+            <td>$<%= product.price %></td>
+            <td class="action-buttons">
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  /* Light Brown and White Theme */
+  :root {
+    --primary-brown: #d4c0a1;
+    --secondary-brown: #c2aa85;
+    --dark-brown: #8a7356;
+    --light-cream: #f7f1e6;
+    --white: #ffffff;
+    --text-dark: #3c3228;
+  }
+
+  body {
+    background-color: var(--light-cream);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .category-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-brown);
+  }
+
+  .page-title {
+    color: var(--dark-brown);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .add-product-btn {
+    background-color: var(--secondary-brown);
+    color: var(--white);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .add-product-btn:hover {
+    background-color: var(--dark-brown);
+  }
+
+  .product-table-container {
+    overflow-x: auto;
+  }
+
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+  }
+
+  .product-table th {
+    background-color: var(--primary-brown);
+    color: var(--text-dark);
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+  }
+
+  .product-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--light-cream);
+  }
+
+  .product-table tr:hover {
+    background-color: var(--light-cream);
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .edit-btn, .delete-btn {
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .edit-btn {
+    background-color: var(--primary-brown);
+    color: var(--text-dark);
+  }
+
+  .delete-btn {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  .edit-btn:hover {
+    background-color: var(--secondary-brown);
+  }
+
+  .delete-btn:hover {
+    background-color: #f5c6cb;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header-section {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .product-table th, 
+    .product-table td {
+      padding: 0.6rem;
+    }
+  }
+</style>
+
+<%- include('../Partials/admin/adminFooter') %>

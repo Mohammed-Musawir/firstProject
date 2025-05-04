@@ -1,0 +1,295 @@
+<%- include('../Partials/admin/adminHeader') %>
+
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card bg-white shadow-sm border-0 mb-4">
+        <div class="card-header bg-gradient-brown d-flex justify-content-between align-items-center">
+          <h4 class="text-white mb-0">Add New Book</h4>
+          <a href="/admin/products" class="btn btn-light">
+            <i class="fas fa-arrow-left me-2"></i>Back to Books
+          </a>
+        </div>
+        <div class="card-body p-4">
+          <form id="addProductForm" action="/api/admin/products/add" method="POST" enctype="multipart/form-data">
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-light-brown">
+                    <h5 class="text-brown mb-0">Book Information</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <label for="productName" class="form-label">Title</label>
+                      <input type="text" class="form-control" id="productName" name="name" required placeholder="E.g., The Great Gatsby">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="author" class="form-label">Author</label>
+                      <input type="text" class="form-control" id="author" name="author" required placeholder="E.g., F. Scott Fitzgerald">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="productCategory" class="form-label">Category</label>
+                      <select class="form-select" id="productCategory" name="category" required>
+                        <option value="" disabled selected>Select category</option>
+                        <% if (categories && categories.length > 0) { %>
+                          <% categories.forEach(category => { %>
+                            <option value="<%= category.value %>"><%= category.name %></option>
+                          <% }) %>
+                        <% } else { %>
+                          <option value="Fiction">Category didnt fetched</option>
+                        <% } %>
+                      </select>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="productPrice" class="form-label">Price ($)</label>
+                        <input type="number" step="0.01" min="0" class="form-control" id="productPrice" name="price" required>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="productStock" class="form-label">Stock Quantity</label>
+                        <input type="number" min="0" class="form-control" id="productStock" name="stock" required>
+                      </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="productDescription" class="form-label">Description</label>
+                      <textarea class="form-control" id="productDescription" name="description" rows="5" required placeholder="Short summary of the book"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-header bg-light-brown">
+                    <h5 class="text-brown mb-0">Book Images</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <label class="form-label">Upload Images (Minimum 3 required)</label>
+                      <div class="image-upload-container">
+                        <div class="image-preview-area d-flex flex-wrap mb-3" id="imagePreviewArea">
+                          <div class="image-preview-placeholder d-flex align-items-center justify-content-center bg-light-brown me-2 mb-2">
+                            <i class="fas fa-plus text-brown"></i>
+                          </div>
+                        </div>
+                        <div class="input-group mb-3">
+                          <input type="file" class="form-control" id="productImages" name="images" accept="image/*" multiple required>
+                          <label class="input-group-text bg-brown text-white" for="productImages">Upload</label>
+                        </div>
+                        <div class="alert alert-light-brown border-0" role="alert">
+                          <i class="fas fa-info-circle me-2 text-brown"></i>
+                          <span class="text-muted">Upload at least 3 high-quality images including the book cover. Recommended size: 800x800px. Maximum file size: 5MB per image.</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- <div class="mb-3">
+                      <label class="form-label">Additional Information</label>
+                      <div class="mb-3">
+                        <label for="format" class="form-label">Format</label>
+                        <select class="form-select" id="format" name="format" required>
+                          <option value="" disabled selected>Select format</option>
+                          <option value="Paperback">Paperback</option>
+                          <option value="Hardcover">Hardcover</option>
+                          <option value="eBook">eBook</option>
+                          <option value="Audiobook">Audiobook</option>
+                        </select>
+                      </div> -->
+                      
+                      <div class="row">
+                        <div class="col-md-6 mb-3">
+                          <label for="pageCount" class="form-label">Page Count</label>
+                          <input type="number" min="1" class="form-control" id="pageCount" name="pageCount">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="publishDate" class="form-label">Publication Date</label>
+                          <input type="date" class="form-control" id="publishDate" name="publishDate">
+                        </div>
+                      </div>
+                      
+                      <div class="mb-3">
+                        <label for="productTags" class="form-label">Tags (comma separated)</label>
+                        <input type="text" class="form-control" id="productTags" name="tags" placeholder="E.g., bestseller, award-winning, romance">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+              <a href="/admin/products" class="btn btn-secondary">
+                <i class="fas fa-times me-2"></i>Cancel
+              </a>
+              <button type="submit" class="btn btn-brown">
+                <i class="fas fa-save me-2"></i>Save Book
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Custom CSS for light brown theme (same as original) -->
+<style>
+  :root {
+    --brown-100: #f5f0e8;
+    --brown-200: #e6d7c3;
+    --brown-300: #d4bea2;
+    --brown-400: #c1a68c;
+    --brown-500: #b08d6c;
+    --brown-600: #9a7b5f;
+    --brown-700: #846a51;
+    --brown-800: #6b5440;
+    --brown-900: #524030;
+  }
+  
+  .bg-brown {
+    background-color: var(--brown-600) !important;
+  }
+  
+  .bg-light-brown {
+    background-color: var(--brown-100) !important;
+  }
+  
+  .bg-gradient-brown {
+    background: linear-gradient(to right, var(--brown-700), var(--brown-500)) !important;
+  }
+  
+  .text-brown {
+    color: var(--brown-700) !important;
+  }
+  
+  .btn-brown {
+    background-color: var(--brown-600);
+    color: white;
+  }
+  
+  .btn-brown:hover {
+    background-color: var(--brown-700);
+    color: white;
+  }
+  
+  .btn-outline-brown {
+    border-color: var(--brown-600);
+    color: var(--brown-600);
+  }
+  
+  .btn-outline-brown:hover {
+    background-color: var(--brown-600);
+    color: white;
+  }
+  
+  .card {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .image-preview-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .image-preview-item {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .image-preview-remove {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--brown-600);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .alert-light-brown {
+    background-color: var(--brown-100);
+    border-color: var(--brown-200);
+    color: var(--brown-800);
+  }
+</style>
+
+<!-- JavaScript for handling image upload preview -->
+<script>
+  // Image preview functionality
+  document.getElementById('productImages').addEventListener('change', function(event) {
+    const previewArea = document.getElementById('imagePreviewArea');
+    previewArea.innerHTML = ''; // Clear existing previews
+    
+    if (this.files.length < 3) {
+      alert('Please select at least 3 images');
+      this.value = '';
+      return;
+    }
+    
+    Array.from(this.files).forEach((file, index) => {
+      if (!file.type.match('image.*')) {
+        return;
+      }
+      
+      const reader = new FileReader();
+      
+      reader.onload = function(e) {
+        const previewItem = document.createElement('div');
+        previewItem.className = 'position-relative me-2 mb-2';
+        previewItem.innerHTML = `
+          <img src="${e.target.result}" class="image-preview-item" data-index="${index}">
+          <div class="image-preview-remove" onclick="removePreview(this, ${index})">
+            <i class="fas fa-times fa-xs"></i>
+          </div>
+        `;
+        previewArea.appendChild(previewItem);
+      }
+      
+      reader.readAsDataURL(file);
+    });
+  });
+  
+  // Function to remove preview
+  function removePreview(element, index) {
+    element.parentElement.remove();
+    // Note: This only removes the preview visually but doesn't update the FileList
+  }
+  
+  // Form validation before submission
+  document.getElementById('addProductForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const imageInput = document.getElementById('productImages');
+    if (imageInput.files.length < 3) {
+      alert('Please upload at least 3 book images');
+      return false;
+    }
+    
+    // If validation passes, submit the form
+    this.submit();
+  });
+</script>
+
+<%- include('../Partials/admin/adminFooter') %>

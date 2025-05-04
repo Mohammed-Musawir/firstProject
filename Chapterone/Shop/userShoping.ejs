@@ -1,0 +1,361 @@
+<%- include('../Partials/user/homepage/header', { title: 'ChapterOne | Shop Books' }) %>
+<link rel="stylesheet" href="/css/User/userHome.css">
+
+<!-- Shop Hero Section -->
+<div class="hero-section container-fluid">
+    <div class="container">
+        <h1>Explore Our Collection</h1>
+        <p class="lead text-center">Find your next favorite book from our carefully curated selection.</p>
+    </div>
+</div>
+
+<!-- Search and Filter Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Sidebar for Filters -->
+        <div class="col-lg-3">
+            <div class="filter-sidebar p-4 mb-4" style="background-color: white; border-radius: 8px; box-shadow: 0 2px 10px var(--soft-shadow);">
+                <h4 style="font-family: 'Playfair Display', serif; color: var(--primary-brown);">Filter Books</h4>
+                
+                <!-- Price Range Filter -->
+                <div class="filter-section mt-4">
+                    <h5 style="font-size: 1.1rem; color: var(--secondary-brown);">Price Range</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="price1">
+                        <label class="form-check-label" for="price1">
+                            Under $10
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="price2">
+                        <label class="form-check-label" for="price2">
+                            $10 - $20
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="price3">
+                        <label class="form-check-label" for="price3">
+                            $20 - $30
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="price4">
+                        <label class="form-check-label" for="price4">
+                            Over $30
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Categories Filter -->
+                <div class="filter-section mt-4">
+                    <h5 style="font-size: 1.1rem; color: var(--secondary-brown);">Categories</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cat1">
+                        <label class="form-check-label" for="cat1">
+                            Fiction
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cat2">
+                        <label class="form-check-label" for="cat2">
+                            Non-Fiction
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cat3">
+                        <label class="form-check-label" for="cat3">
+                            Mystery
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cat4">
+                        <label class="form-check-label" for="cat4">
+                            Romance
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cat5">
+                        <label class="form-check-label" for="cat5">
+                            Science Fiction
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cat6">
+                        <label class="form-check-label" for="cat6">
+                            Self-Help
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Author Filter -->
+                <div class="filter-section mt-4">
+                    <h5 style="font-size: 1.1rem; color: var(--secondary-brown);">Popular Authors</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="author1">
+                        <label class="form-check-label" for="author1">
+                            J.K. Rowling
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="author2">
+                        <label class="form-check-label" for="author2">
+                            Stephen King
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="author3">
+                        <label class="form-check-label" for="author3">
+                            James Patterson
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="author4">
+                        <label class="form-check-label" for="author4">
+                            Colleen Hoover
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Rating Filter -->
+                <div class="filter-section mt-4">
+                    <h5 style="font-size: 1.1rem; color: var(--secondary-brown);">Rating</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="rating1">
+                        <label class="form-check-label" for="rating1">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="rating2">
+                        <label class="form-check-label" for="rating2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="far fa-star text-warning"></i> & up
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="rating3">
+                        <label class="form-check-label" for="rating3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="far fa-star text-warning"></i>
+                            <i class="far fa-star text-warning"></i> & up
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary mt-4 w-100" style="background-color: var(--primary-brown); border-color: var(--primary-brown);">Apply Filters</button>
+                <button class="btn btn-outline-secondary mt-2 w-100">Clear All</button>
+            </div>
+        </div>
+        
+        <!-- Right Content Area for Products -->
+        <div class="col-lg-9">
+            <!-- Search Bar -->
+            <div class="search-container mb-4">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search by title, author, or ISBN..." aria-label="Search">
+                    <button class="btn btn-primary" type="submit" style="background-color: var(--primary-brown); border-color: var(--primary-brown);">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Sorting Options -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <p class="mb-0"><span class="fw-bold">248</span> books found</p>
+                <div class="d-flex align-items-center">
+                    <label for="sortSelect" class="me-2">Sort by:</label>
+                    <select class="form-select" id="sortSelect" style="width: auto;">
+                        <option selected>Popularity</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest Arrivals</option>
+                        <option>Rating</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Book Grid -->
+            <div class="row">
+                <% for(let i = 0; i < 9; i++) { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="book-card">
+                            <div class="badge bg-success position-absolute" style="top: 10px; right: 10px; z-index: 1;">
+                                New
+                            </div>
+                            <img src="/img/book<%= i+1 %>.jpg" alt="Book Title" class="img-fluid">
+                            <div class="overlay"></div>
+                            <div class="action-buttons">
+                                <button class="btn btn-add"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="btn btn-wishlist"><i class="fas fa-heart"></i></button>
+                                <button class="btn btn-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="p-3">
+                                <div class="d-flex">
+                                    <div>
+                                        <h5 style="font-family: 'Playfair Display', serif;">Book Title <%= i+1 %></h5>
+                                        <p>Author Name</p>
+                                        <div class="mb-2">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star-half-alt text-warning"></i>
+                                            <span class="ms-1">4.5</span>
+                                        </div>
+                                        <p class="fw-bold">$<%= 10 + i*2 %>.99</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#" style="background-color: var(--primary-brown); border-color: var(--primary-brown);">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#" style="color: var(--primary-brown);">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#" style="color: var(--primary-brown);">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" style="color: var(--primary-brown);">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Collections -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4" style="font-family: 'Playfair Display', serif; color: var(--primary-brown);">Featured Collections</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="collection-card p-4 text-center" style="background-color: white; border-radius: 8px; box-shadow: 0 2px 10px var(--soft-shadow);">
+                <i class="fas fa-award mb-3" style="font-size: 2rem; color: var(--primary-brown);"></i>
+                <h4 style="font-family: 'Playfair Display', serif;">Award Winners</h4>
+                <p>Explore books that have received prestigious literary awards</p>
+                <a href="#" class="btn btn-outline-primary" style="color: var(--primary-brown); border-color: var(--primary-brown);">View Collection</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="collection-card p-4 text-center" style="background-color: white; border-radius: 8px; box-shadow: 0 2px 10px var(--soft-shadow);">
+                <i class="fas fa-book-open mb-3" style="font-size: 2rem; color: var(--primary-brown);"></i>
+                <h4 style="font-family: 'Playfair Display', serif;">New Releases</h4>
+                <p>Discover the latest and most anticipated new titles</p>
+                <a href="#" class="btn btn-outline-primary" style="color: var(--primary-brown); border-color: var(--primary-brown);">View Collection</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="collection-card p-4 text-center" style="background-color: white; border-radius: 8px; box-shadow: 0 2px 10px var(--soft-shadow);">
+                <i class="fas fa-users mb-3" style="font-size: 2rem; color: var(--primary-brown);"></i>
+                <h4 style="font-family: 'Playfair Display', serif;">Book Club Picks</h4>
+                <p>Books perfect for discussion in reading groups and book clubs</p>
+                <a href="#" class="btn btn-outline-primary" style="color: var(--primary-brown); border-color: var(--primary-brown);">View Collection</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../Partials/user/homepage/footer') %>
+
+<style>
+    /* Additional CSS for product page */
+    .book-card {
+        position: relative;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px var(--soft-shadow);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .book-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .book-card .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .book-card:hover .overlay {
+        opacity: 1;
+    }
+    
+    .action-buttons {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .book-card:hover .action-buttons {
+        opacity: 1;
+    }
+    
+    .action-buttons .btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        color: var(--primary-brown);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .action-buttons .btn:hover {
+        background-color: var(--primary-brown);
+        color: white;
+    }
+    
+    .collection-card {
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+    
+    .collection-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .page-link:focus {
+        box-shadow: 0 0 0 0.25rem rgba(93, 64, 55, 0.25);
+    }
+    
+    /* Make images same height in grid */
+    .book-card img {
+        height: 250px;
+        object-fit: cover;
+        width: 100%;
+    }
+</style>
